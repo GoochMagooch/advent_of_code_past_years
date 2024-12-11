@@ -3,7 +3,6 @@ with open("input.txt") as input:
 
 depth = 0
 horizon = 0
-digits = []
 for line in data:
     if "down" in line:
         for i in line:
