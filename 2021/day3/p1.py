@@ -13,7 +13,7 @@ for i in range(len(rows[0])):
     zero_bit = 0
     one_bit = 0
     for j in range(len(rows)):
-        if j == 0:
+        if rows[j][i] == 0:
             zero_bit += 1
         else:
             one_bit += 1
@@ -22,4 +22,7 @@ for i in range(len(rows[0])):
     else:
         final_bin.append(0)
 
-print(final_bin)
+gamma = ''
+for i in final_bin:
+    gamma += str(i)
+print(gamma)
