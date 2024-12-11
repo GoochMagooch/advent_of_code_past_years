@@ -8,6 +8,8 @@ for line in data:
         lines.append(int(i))
     rows.append(lines)
 
+# calculates the number of 1's and 0's in each column of `rows`
+# places those values in their respective categories of either 'gamma' or 'epsilon'
 final_bin_gamma = []
 final_bin_epsilon = []
 for i in range(len(rows[0])):
@@ -25,7 +27,7 @@ for i in range(len(rows[0])):
         final_bin_gamma.append(0)
         final_bin_epsilon.append(1)
 
-
+# converts gamma and epsilon lists to strings of digits
 gamma = ''
 for i in final_bin_gamma:
     gamma += str(i)
@@ -33,6 +35,7 @@ epsilon = ''
 for i in final_bin_epsilon:
     epsilon += str(i)
 
+# converts strings of binary to the decimal value
 def binary_decoder(string_of_ints):
     lst = []
     for i in string_of_ints:
@@ -50,4 +53,4 @@ def binary_decoder(string_of_ints):
             lst.pop()
     return decimal
 
-print(binary_decoder(gamma))
+print(binary_decoder(gamma) * binary_decoder(epsilon))
