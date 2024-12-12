@@ -17,4 +17,3 @@ for i in lines:
                 ans = k * j * i
 
 print(ans)
-
