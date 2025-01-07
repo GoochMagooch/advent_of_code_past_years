@@ -20,7 +20,7 @@ for i in range(len(rows[0])):
             zero_bit += 1
         else:
             one_bit += 1
-    if one_bit > zero_bit and one_bit == zero_bit:
+    if one_bit > zero_bit:
         final_bin_gamma.append(1)
         final_bin_epsilon.append(0)
     else:
@@ -48,11 +48,9 @@ def binary_decoder(string_of_ints):
             decimal += char
             char *= 2
             lst.pop()
-        elif lst[-1] == 0:
+        else:
             char *= 2
             lst.pop()
-        else:
-            print(f"{lst} is not a binary number")
     return decimal
 
 power_consumption = binary_decoder(gamma) * binary_decoder(epsilon)
