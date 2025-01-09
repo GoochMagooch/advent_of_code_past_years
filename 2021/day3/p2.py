@@ -2,18 +2,56 @@ with open("input.txt") as input:
     data = input.readlines()
 
 rows = [line.strip() for line in data]
-
-# if there are more 0's than 1's in this column then do this
-# else do this
-
 ox_lst = []
-c02_lst = []
-for i in range(len(rows)):
-    if rows[i][0] == '1':
-        ox_lst.append(rows[i])
-    elif rows[i][0] == '0':
-        c02_lst.append(rows[i])
+ones = []
+zeros = []
+counter = 0
 
+while len(rows) > 1:
+    for i in range(len(rows)):
+        if rows[i][counter] == '1':
+            ones.append(rows[i])
+        elif rows[i][counter] == '0':
+            zeros.append(rows[i])
+    counter += 1
+
+    if len(ones) == len(zeros):
+        ox_lst = ones
+    elif len(ones) > len(zeros):
+        ox_lst = ones
+    elif len(ones) < len(zeros):
+        ox_lst = zeros
+        
+    rows = ox_lst
+    if len(rows) == 1:
+        ox_lst = rows[0]
+        continue
+print(ox_lst)
+
+'''
+rows_two = [line.strip() for line in data]
+c02_lst = []
+one = []
+zero = []
+counter = 0
+while len(rows_two) > 1:
+    for i in range(len(rows_two)):
+        if rows_two[i][counter] == '1':
+            one.append(rows_two[i])
+        elif rows_two[i][counter] == '0':
+            zero.append(rows_two[i])
+    whle len(one) > 1 and len(zero) > 1:
+        if len(one) == len(zero):
+            c02_lst = zero
+        elif len(one) > len(zero):
+            c02_lst = zero
+        elif len(one) < len(zero):
+            c02_lst = one
+        
+    rows_two = c02_lst
+    counter += 1
+'''
+'''
 # find the most common digit in each row
 counter = 0
 while len(ox_lst) > 1:
@@ -62,3 +100,4 @@ def binary_decoder(string_of_ints):
 
 print(binary_decoder(oxygen))
 print(binary_decoder(c02))
+'''
