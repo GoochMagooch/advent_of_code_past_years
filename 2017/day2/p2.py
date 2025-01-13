@@ -1,4 +1,4 @@
-with open("test.txt") as x:
+with open("input.txt") as x:
     y = x.readlines()
 
 # series of data cleaning
