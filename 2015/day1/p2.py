@@ -16,3 +16,4 @@ for i in data:
         index += 1
     if counter == -1:
         print(index)
+        break
