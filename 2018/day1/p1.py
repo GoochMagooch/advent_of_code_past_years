@@ -1,4 +1,4 @@
-with open("input.txt") as x:
+with open("test.txt") as x:
     y = x.readlines()
 
 data = [line.strip() for line in y]
@@ -25,8 +25,6 @@ for i in data_separated:
             counter += 1
     integers.join('')
     int_data.append(int(integers))
-print(int_data)
-print(operators)
 
 index = 0
 frequency = 0
