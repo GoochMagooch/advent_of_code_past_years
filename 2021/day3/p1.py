@@ -26,6 +26,8 @@ for i in range(len(rows[0])):
     else:
         final_bin_gamma.append(0)
         final_bin_epsilon.append(1)
+print(final_bin_gamma)
+print(final_bin_epsilon)
 
 # converts gamma and epsilon lists to strings of digits
 gamma = ''
