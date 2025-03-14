@@ -2,6 +2,7 @@ with open("test.txt") as x:
     y = x.readlines()
 
 data = [line.strip() for line in y]
+print(data)
 
 data_separated = []
 for i in data:
