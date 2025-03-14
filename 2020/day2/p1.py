@@ -3,25 +3,6 @@ with open('test.txt') as x:
 
 data_stripped = [line.strip() for line in data]
 
-def isolate_ranges(lst):
-    temp_ranges = []
-    for i in range(len(lst)):
-        range_lst = []
-        for j in range(3):
-            range_lst.append(lst[i][j])
-        temp_ranges.append(range_lst)
-
-    ranges = []
-    for i in temp_ranges:
-        i.remove('-')
-    for i in temp_ranges:
-        temp = []
-        for j in i:
-            temp.append(int(j))
-        ranges.append(temp)
-    return ranges
-range_lst = isolate_ranges(data_stripped)
-
 # removes spaces from each password
 data_strings = []
 for i in data_stripped:
@@ -29,6 +10,21 @@ for i in data_stripped:
     for j in i:
         data_string += j
     data_strings.append(data_string.replace(' ', ''))
+# isolate ranges
+uppers = []
+lowers = []
+for i in data_strings:
+    op = i.index('-')
+    op_upper = op + 1
+    double_upper = 0
+    if i[op:3].isdigit():
+        uppers.append(int(i[op:3]))
+        uppers.append(double_upper)
+    else:
+        uppers.append(i[op_upper:2])
+    lowers.append(i[:op])
+print(uppers)
+print(lowers)
 # isolates required character
 char_requirement = []
 for i in data_strings:
