@@ -17,7 +17,6 @@ for i in range_strings:
     range_list.append(temp)
 
 # Checks if conditions are true for each password
-
 def password_validator(lst):
     ans = 0
     for i in range(len(lst)):
