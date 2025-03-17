@@ -15,10 +15,29 @@ for i in range_strings:
     for j in i:
         temp.append(int(j))
     range_list.append(temp)
-print(range_list)
 
 # Checks if conditions are true for each password
-ans = 0
-for i in range_list:
-    for i in i:
-        pass
+
+def password_validator(lst):
+    ans = 0
+    for i in range(len(lst)):
+        repeating = False
+        ascending = False
+        for j in range(len(lst[i])):
+            last = lst[i][-1]
+            if repeating == True and ascending == True:
+                ans += 1
+                break
+            if lst[i][j] == last:
+                if lst[i][j] == lst[i][j - 1]:
+                    repeating = True
+                if lst[i][j] > lst[i][j - 1]:
+                    ascending = True
+            else:
+                if lst[i][j] < lst[i][j + 1]:
+                    ascending = True
+                if lst[i][j] == lst[i][j + 1]:
+                    repeating = True
+    return ans
+
+print(password_validator(range_list))
