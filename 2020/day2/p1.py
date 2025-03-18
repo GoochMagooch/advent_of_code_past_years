@@ -19,19 +19,27 @@ with open('test.csv') as x:
     x.close()
 
 def password_validator(range1_lst, range2_lst, char_req_lst, pw_lst):
-    low = 0
-    high = 0
+    valid_count = 0
+    # Loops through a range of the length of password list
     for i in range(len(pw_lst)):
+        # Asssigns low and high ranges, and character requirement to variables
+        high = range1_lst[i]
+        low = range2_lst[i]
         char = char_req_lst[i]
+        # Boolean check for valid passwords and required character counter
         valid_pw = True
         char_count = 0
+        # Conditional check for required character in password
         if not char in pw_lst[i]:
             valid_pw = False
         else:
             for j in pw_lst[i]:
                 if j == char:
                     char_count += 1
-        if char_count >= low and char_count <= high:
-            valid_pw
-        else:
+        # Conditional check for required character range
+        if char_count < low or char_count > high:
             valid_pw = False
+        valid_count += 1
+    return valid_count
+
+print(password_validator(lowers, highers, char_required, password))
