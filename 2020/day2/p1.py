@@ -1,5 +1,8 @@
+import csv
+
 with open('test.txt') as x:
-    data = x.readlines()
+    data = csv.DictReader(x)
+print(data)
 
 data_stripped = [line.strip() for line in data]
 
@@ -24,8 +27,8 @@ for i in data_strings:
     else:
         uppers.append(i[op_upper:2])
     lowers.append(i[:op])
-print(uppers)
-print(lowers)
+# print(uppers)
+# print(lowers)
 
 # isolates required character
 char_requirement = []
@@ -36,4 +39,4 @@ for i in data_strings:
 password = []
 for i in data_strings:
     password.append(i[5:])
-print(password)
+# print(password)
