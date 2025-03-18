@@ -1,42 +1,37 @@
 import csv
 
-with open('test.txt') as x:
-    data = csv.DictReader(x)
-print(data)
+with open('test.csv') as x:
+    # Create csv object
+    data = csv.reader(x, delimiter=' ')
+    # Lists to populate with delimited columns of csv
+    lowers = []
+    highers = []
+    char_required = []
+    password = []
+    # Loops through csv object to populate lists
+    for row in data:
+        quota, letter, pw = row[0], row[1][0], row[2]
+        i = quota.index('-')
+        lowers.append(int(quota[:i]))
+        highers.append(int(quota[i + 1:]))
+        char_required.append(letter)
+        password.append(pw)
+    x.close()
 
-data_stripped = [line.strip() for line in data]
-
-# removes spaces from each password
-data_strings = []
-for i in data_stripped:
-    data_string = ''
-    for j in i:
-        data_string += j
-    data_strings.append(data_string.replace(' ', ''))
-
-# isolate ranges
-uppers = []
-lowers = []
-for i in data_strings:
-    op = i.index('-')
-    op_upper = op + 1
-    double_upper = 0
-    if i[op:3].isdigit():
-        uppers.append(int(i[op:3]))
-        uppers.append(double_upper)
-    else:
-        uppers.append(i[op_upper:2])
-    lowers.append(i[:op])
-# print(uppers)
-# print(lowers)
-
-# isolates required character
-char_requirement = []
-for i in data_strings:
-    char_requirement.append(i[3])
-
-# stores passwords from data strings
-password = []
-for i in data_strings:
-    password.append(i[5:])
-# print(password)
+def password_validator(range1_lst, range2_lst, char_req_lst, pw_lst):
+    low = 0
+    high = 0
+    for i in range(len(pw_lst)):
+        char = char_req_lst[i]
+        valid_pw = True
+        char_count = 0
+        if not char in pw_lst[i]:
+            valid_pw = False
+        else:
+            for j in pw_lst[i]:
+                if j == char:
+                    char_count += 1
+        if char_count >= low and char_count <= high:
+            valid_pw
+        else:
+            valid_pw = False
