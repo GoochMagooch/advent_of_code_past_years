@@ -1,6 +1,6 @@
 import csv
 
-with open('test.csv') as x:
+with open('input.csv') as x:
     # Create csv object
     data = csv.reader(x, delimiter=' ')
     # Lists to populate with delimited columns of csv
@@ -23,8 +23,8 @@ def password_validator(range1_lst, range2_lst, char_req_lst, pw_lst):
     # Loops through a range of the length of password list
     for i in range(len(pw_lst)):
         # Asssigns low and high ranges, and character requirement to variables
-        high = range1_lst[i]
-        low = range2_lst[i]
+        low = range1_lst[i]
+        high = range2_lst[i]
         char = char_req_lst[i]
         # Boolean check for valid passwords and required character counter
         valid_pw = True
@@ -39,7 +39,8 @@ def password_validator(range1_lst, range2_lst, char_req_lst, pw_lst):
         # Conditional check for required character range
         if char_count < low or char_count > high:
             valid_pw = False
-        valid_count += 1
+        else:
+            valid_count += 1
     return valid_count
 
 print(password_validator(lowers, highers, char_required, password))
