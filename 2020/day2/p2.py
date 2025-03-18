@@ -18,29 +18,21 @@ with open('input.csv') as x:
         password.append(pw)
     x.close()
 
-def password_validator(range1_lst, range2_lst, char_req_lst, pw_lst):
-    valid_count = 0
-    # Loops through a range of the length of password list
+def password_validator(range1_lst, range2_lst, char_lst, pw_lst):
+    count = 0
+    # 
     for i in range(len(pw_lst)):
-        # Asssigns low and high ranges, and character requirement to variables
+        # 
+        char = char_lst[i]
         low = range1_lst[i]
         high = range2_lst[i]
-        char = char_req_lst[i]
-        # Boolean check for valid passwords and required character counter
-        valid_pw = True
-        char_count = 0
-        # Conditional check for required character in password
-        if not char in pw_lst[i]:
-            valid_pw = False
-        else:
-            for j in pw_lst[i]:
-                if j == char:
-                    char_count += 1
-        # Conditional check for required character range
-        if char_count < low or char_count > high:
-            valid_pw = False
-        else:
-            valid_count += 1
-    return valid_count
+        for j in range(1):
+            if not char in pw_lst[i]:
+                break
+            if pw_lst[i].index(char) == low - 1 and pw_lst[i].index(char) == high - 1:
+                break
+            elif pw_lst[i].index(char) == low - 1 or pw_lst[i].index(char) == high - 1:
+                count += 1
+    return count
 
 print(password_validator(lowers, highers, char_required, password))
