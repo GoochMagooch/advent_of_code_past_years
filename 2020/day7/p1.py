@@ -1,4 +1,5 @@
 with open('input.txt') as x:
-    data = x.readlines()
+    y = x.readlines()
 
+data = [i.strip() for i in y]
 print(data)
