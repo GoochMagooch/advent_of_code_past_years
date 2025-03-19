@@ -16,18 +16,20 @@ for i in range(len(l)):
     count = 0
     min_side = sys.maxsize
     temp = []
+
     side1 = 2 * l[i] * w[i]
     count += 1
-    temp.append(side1)
+    temp.append(l[i])
     side2 = 2 * w[i] * h[i]
     count += 1
-    temp.append(side2)
+    temp.append(w[i])
     side3 = 2 * h[i] * l[i]
     count += 1
-    temp.append(side3)
+    temp.append(h[i])
+
     for i in range(count):
         if temp[i] < min_side:
-            min_side = i
+            min_side = temp[i]
     dimensions.append(side1 + side2 + side3 + min_side)
 
 ans = 0
