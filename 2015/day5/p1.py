@@ -1,3 +1,17 @@
 with open('test.txt') as y:
-    x = [i.strip() for i in y]
-print(x)
+    data = [i.strip() for i in y]
+
+vowels = ['a', 'e', 'i', 'o', 'u']
+nice = 0
+for i in range(len(data)):
+    count = 0
+
+    # Counts vowels in each string
+    vowel_count = 0
+    for j in data[i]:
+        if j in vowels:
+            vowel_count += 1
+    if vowel_count >= 3:
+        count += 1
+    
+print(nice)
