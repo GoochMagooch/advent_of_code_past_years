@@ -1,4 +1,3 @@
-import sys
 import csv
 with open("input.csv") as y:
     x = csv.reader(y, delimiter='x')
