@@ -13,23 +13,12 @@ with open("input.csv") as y:
 # 2*l*w + 2*w*h + 2*h*l
 dimensions = []
 for i in range(len(l)):
-    count = 0
-    min_side = sys.maxsize
-    temp = []
+    min_side = min(l[i] * w[i], w[i] * h[i], l[i] * h[i])
 
     side1 = 2 * l[i] * w[i]
-    count += 1
-    temp.append(l[i])
     side2 = 2 * w[i] * h[i]
-    count += 1
-    temp.append(w[i])
     side3 = 2 * h[i] * l[i]
-    count += 1
-    temp.append(h[i])
 
-    for i in range(count):
-        if temp[i] < min_side:
-            min_side = temp[i]
     dimensions.append(side1 + side2 + side3 + min_side)
 
 ans = 0
