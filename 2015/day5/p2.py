@@ -1,8 +1,6 @@
 with open('input.txt') as y:
     data = [i.strip() for i in y]
 
-vowels = ['a', 'e', 'i', 'o', 'u']
-banned = ['ab', 'cd', 'pq', 'xy']
 ans = 0
 for i in range(len(data)):
     nice = True
