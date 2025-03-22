@@ -26,7 +26,7 @@ for i in range(len(l)):
     # Find extra ribbon needed for bow
     extra = l[i] * w[i] * h[i]
 
-    # Total amount of ribbon needed
+    # Total amount of ribbon needed package[i]
     ans += extra + p
-
+    
 print(ans)
