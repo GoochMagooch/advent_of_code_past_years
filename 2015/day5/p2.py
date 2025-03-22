@@ -6,15 +6,6 @@ banned = ['ab', 'cd', 'pq', 'xy']
 ans = 0
 for i in range(len(data)):
     nice = True
-    
-    # Counts vowels in each string
-    vowel_count = 0
-    for j in data[i]:
-        if j in vowels:
-            vowel_count += 1
-    if vowel_count < 3:
-        nice = False
-        continue
 
     # Checks if string contains at least one set of repeating characters
     index = -1
